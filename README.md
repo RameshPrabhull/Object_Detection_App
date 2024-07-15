@@ -1,9 +1,9 @@
 <h1>Object and Face detection using python integrated with OpenCV</h1>
 <h3>Functions of Each file</h3>
 <ol>
-  <li>Analyse a given frame of video or image and Detect the Face</li>
-  <li>Visuals captured through camera or input image, and selected objects images within are extracted and enahnaced for further analyses</li>
-  <li>For a selected object in input video, track the object and capture its rotuine</li>
+  <li>Analyse a given frame of video or image</li>
+  <li>Visuals captured through camera or input image, and selected objects images within are extracted and enahanced for further analysis</li>
+  <li>For a selected object in input video, track the object and capture its routine</li>
 </ol>
 <h3>
   Libraries & Modules used
