@@ -32,9 +32,8 @@ class objectDetection():
     modelFile  = os.path.join("models", "ssd_mobilenet_v2_coco_2018_03_29", "frozen_inference_graph.pb")
     configFile = os.path.join("models", "ssd_mobilenet_v2_coco_2018_03_29.pbtxt")
     net=c.dnn.readNetFromTensorflow(modelFile,configFile)
-
-    def __init__(self):
-        pass
+    def __init__(self,path):
+        self.imPath=path
 
     def liveDetection(self):
         thresh=0.5
@@ -80,7 +79,7 @@ class objectDetection():
             net=self.net
             """ window="Object Detection Using TF (Input Image)"
             c.namedWindow(window) """
-            print("\n**Select pre-loaded Sample Image**")
+            """print("\n**Select pre-loaded Sample Image**")
             im_list=os.listdir("C:\Projects\OpenCV\images")
             print(im_list)
             for i in range(len(im_list)):
@@ -88,9 +87,10 @@ class objectDetection():
             num=int(input("Select Image \n"))
             num=num-1
             image=im_list[num]
-            imPath="C:\Projects\OpenCV\images\\"+image
+            imPath="C:\Projects\OpenCV\images\\"+image """
             try:
-                im_Arr=c.imread(imPath)
+                im_Arr=c.imread(self.imPath)
+                im_Arr=c.cvtColor(im_Arr,c.COLOR_BGR2RGB)
                 height=im_Arr.shape[0]
                 width=im_Arr.shape[1]
                 blob=c.dnn.blobFromImage(im_Arr,1.0,size=(300,300),mean=[0,0,0],swapRB=True,crop=False)
@@ -112,27 +112,29 @@ class objectDetection():
                         c.rectangle(im_Arr,(xtop,ytop),(xbottom,ybottom),(255,255,255),thickness=2,)
                         objSet.add(self.labels[imId])
                         objList.append(self.labels[imId])
-                c.imshow("Image Extraction",im_Arr)
-                print("Object Identified in the Image")
+                """ c.imshow("Image Extraction",im_Arr) """
+                """ print("Object Identified in the Image") """
                 for x in objSet:
                     objDict[x]=objList.count(x)
-                print(objDict)
+                """ print(objDict) """
                 """ print(imgExtract) """
-                print("Select the Object you want to Extract")
+                """ print("Select the Object you want to Extract") """
                 settolist=list(objSet)
-                for i,x in enumerate(settolist):
-                    print(f"{i+1}. {x}")
-                select=int(input())
+                """ for i,x in enumerate(settolist):
+                    print(f"{i+1}. {x}") """
+                """ select=int(input())
                 selectedObj=settolist[select-1]
                 for i,x in enumerate(imgExtract[selectedObj]):
-                    c.imshow(f"object{i+1}",im_Arr[x[1]:x[3],x[0]:x[2]])
-                c.waitKey(0)
-                c.destroyAllWindows()
+                    c.imshow(f"object{i+1}",im_Arr[x[1]:x[3],x[0]:x[2]]) """
+                """ c.waitKey(0)
+                c.destroyAllWindows() """
+                return im_Arr,objDict,objSet,imgExtract
             except:
                 print("Unable to read the input image....")
-
+                return 0
             
-Obj_det=objectDetection()
+            
+""" Obj_det=objectDetection()
 print("\n ***Object Detection Using OpenCV and TensorFLow with Pre-Trained Model*** \n")
 print("1. Detect Live Objects Through Camera \n2. Detect Objects Through input Image")
 select=int(input("Select Object Detection Method \n"))
@@ -141,7 +143,7 @@ if select==1:
 elif select==2:
     Obj_det.inputImage()
 else:
-    print("Select Valid Method")
+    print("Select Valid Method") """
 
 
 
