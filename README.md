@@ -1,20 +1,12 @@
-<h1>Object and Face detection using python integrated with OpenCV</h1>
-<h3>Functions of Each file</h3>
-<ol>
-  <li>Analyse a given frame of video or image</li>
-  <li>Visuals captured through camera or input image, and selected objects images within are extracted and enahanced for further analysis</li>
-  <li>For a selected object in input video, track the object and capture its routine</li>
-</ol>
-<h3>
-  Libraries & Modules used
-</h3>
-  <ol>
-    <li>OpenCV (cv2)</li>
-    <li>os</li>
-    <li>numpy</li>
-    <li>TensorFlow (tf)</li>
-    <li>Pre-Trained Models for Object detecttion</li>
-    <li>conda</li>
-  </ol>
-  <h3>Usage</h3>
-  <p>Clone the Repository and download the required modules using pip package manager or conda </p>
+<h1>Object detection using OpenCV</h1>
+<p>Identifies the objects in the given input image and number of each object identfied is mentioned along</p>
+<h3>Libraries Used</h3>
+<ul>
+  <li>os</li>
+  <li>streamlit</li>
+  <li>cv2 (opencv)</li>
+  <li>zipfile</li>
+  <li>urllib</li>
+</ul>
+<h3>Usage</h3>
+<p>Use Conda package manager to install the specified packages mentioned in libraries section</p>
