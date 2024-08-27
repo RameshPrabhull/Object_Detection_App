@@ -12,7 +12,7 @@ def expand(object):
         extImg=originalArray[x[1]:x[3],x[0]:x[2]]
         extImg=c.GaussianBlur(extImg,(5,5),0)
         cont4.image(extImg)
-        cont4.button("Enhance",key=i)
+        #cont4.button("Enhance",key=i)
 if(not im_path==""):
         try:
             originalArray=c.imread(im_path)
