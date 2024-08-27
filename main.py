@@ -33,7 +33,7 @@ if(not im_path==""):
                 for i,l in enumerate(dList):
                     col[i].button(l,on_click=expand,args=(l,))
         except:
-            sl.header("Oops!! The image path seems to be incorrect...Try Other Images")
+            sl.header("Oops!! The image path seems to be incorrect...try Other Images")
 
             
 
